@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <StartupObject>Codecool.Histogram.Program</StartupObject>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>..\..\docs\Codecool.Histogram\Codecool.Histogram.xml</DocumentationFile>
+    <CodeAnalysisRuleSet>..\Codecool.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+
+  <Target Name="Text" AfterTargets="AfterBuild">
+    <Copy SourceFiles="..\..\data\text.txt" DestinationFolder="$(OutDir)" />
+  </Target>
+
+</Project>

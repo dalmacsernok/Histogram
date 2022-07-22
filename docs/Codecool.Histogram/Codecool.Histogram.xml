@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Codecool.Histogram</name>
+    </assembly>
+    <members>
+        <member name="T:Codecool.Histogram.Histogram">
+            <summary>
+            Class to generate diagram of word distribution in text based on their length.
+            </summary>
+        </member>
+        <member name="M:Codecool.Histogram.Histogram.GetHistogram">
+            <summary>
+            Get the already generated histogram
+            where the key is the range
+            and the value is the count of words in the given range
+            <returns> Histogram as a Dictionary of types Range, int </returns>
+            </summary>
+        </member>
+        <member name="M:Codecool.Histogram.Histogram.GenerateRanges(System.Int32,System.Int32)">
+            <summary>
+            Generate x amount of step width ranges.
+            <param name="step"> Required range width. </param>
+            <param name="amount"> Required amount of ranges. </param>
+            <returns> List of ranges. </returns>
+            </summary>
+        </member>
+        <member name="M:Codecool.Histogram.Histogram.Generate(System.String,System.Collections.Generic.List{Codecool.Histogram.Range})">
+            <summary>
+            Calculates the distribution of words in a given text based on provided ranges.
+            <param name="text"> Text to analyze. </param>
+            <param name="ranges"> Words' length distribution ranges. </param>
+            <returns> Counts of words in given ranges. </returns>
+            </summary>
+        </member>
+        <member name="M:Codecool.Histogram.Histogram.NormalizeValues">
+            <summary>
+            Normalize the values for better understanding.
+            For every feature, the minimum value of that feature gets transformed into a 0,
+            the maximum value gets transformed into a 100,
+            and every other value gets transformed into an int between 0 and 100.
+            The following formula applied to each range:
+                 `V' = (V - min) * 100 / (max - min)`
+            </summary>
+        </member>
+        <member name="M:Codecool.Histogram.Histogram.ToString">
+            <summary>
+            Returns with the string representation of the generated histogram
+            where every range is in separate line and the bars represented as asterisks.
+            <returns> String representation of histogram. </returns> 
+            </summary>
+        </member>
+        <member name="T:Codecool.Histogram.Range">
+            <summary>
+            The Range class represents numbers between upper and lower limits.
+            </summary>
+        </member>
+        <member name="M:Codecool.Histogram.Range.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Constructs a Range with specified lower and upper limit.
+            Lower and upper limits cannot be smaller than 0.
+            <param name="from"> Lower limit. </param>
+            <param name="to"> Upper limit. </param>
+            </summary>
+        </member>
+        <member name="M:Codecool.Histogram.Range.IsInRange(System.String)">
+            <summary>
+            Returns that the given word belongs to the particular range or not.
+            <param name="word"> Text to investigate. </param>
+            <returns> The word belongs to the particular range or not. </returns> 
+            </summary>
+        </member>
+        <member name="M:Codecool.Histogram.TextReader.#ctor(System.String)">
+            <summary>
+            Constructs a TextReader with a specified file.
+            <param name="fileName"> Name of the file to read. </param>
+            </summary>
+        </member>
+        <member name="M:Codecool.Histogram.TextReader.Read">
+            <summary>
+            Returns the text content of the file specified in constructor.
+            <returns>  Text content of previously specified file. </returns>
+            <exception cref="T:System.IO.IOException"> Thrown in case of non-existing file. </exception>
+            </summary>
+        </member>
+    </members>
+</doc>
